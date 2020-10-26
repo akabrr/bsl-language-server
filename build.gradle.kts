@@ -6,10 +6,9 @@ import java.util.*
 
 plugins {
     `java-library`
-    maven
     `maven-publish`
     jacoco
-    id("com.github.hierynomus.license") version "0.15.0"
+    id("net.kyori.indra.license-header") version "1.0.2"
     id("org.sonarqube") version "3.0"
     id("io.franzbecker.gradle-lombok") version "4.0.0"
     id("me.qoomon.git-versioning") version "3.0.0"
@@ -79,6 +78,7 @@ dependencies {
     implementation("commons-io", "commons-io", "2.8.0")
     implementation("org.apache.commons", "commons-lang3", "3.11")
     implementation("commons-beanutils", "commons-beanutils", "1.9.4")
+    implementation("org.apache.commons", "commons-collections4", "4.4")
 
     // progress bar
     implementation("me.tongfei", "progressbar", "0.8.1")
@@ -148,7 +148,7 @@ tasks.test {
     useJUnitPlatform()
 
     testLogging {
-        events("passed", "skipped", "failed")
+        events("passed", "skipped", "failed", "standard_error")
     }
 
     reports {
@@ -183,19 +183,24 @@ tasks.processResources {
     }
 }
 
+jacoco {
+    toolVersion = "0.8.6"
+}
+
 license {
     header = rootProject.file("license/HEADER.txt")
     ext["year"] = "2018-" + Calendar.getInstance().get(Calendar.YEAR)
     ext["name"] = "Alexey Sosnoviy <labotamy@gmail.com>, Nikita Gryzlov <nixel2007@gmail.com>"
     ext["project"] = "BSL Language Server"
-    strictCheck = true
-    mapping("java", "SLASHSTAR_STYLE")
     exclude("**/*.properties")
     exclude("**/*.xml")
     exclude("**/*.json")
     exclude("**/*.bsl")
     exclude("**/*.os")
     exclude("**/*.txt")
+    exclude("**/*.java.orig")
+    exclude("**/*.impl")
+    exclude("**/*.mockito.plugins.MockMaker")
 }
 
 sonarqube {

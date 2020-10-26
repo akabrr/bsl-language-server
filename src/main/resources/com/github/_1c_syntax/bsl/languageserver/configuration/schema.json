@@ -158,6 +158,9 @@
                 "FunctionNameStartsWithGet": {
                     "$ref": "parameters-schema.json#/definitions/FunctionNameStartsWithGet"
                 },
+                "FunctionOutParameter": {
+                    "$ref": "parameters-schema.json#/definitions/FunctionOutParameter"
+                },
                 "FunctionReturnsSamePrimitive": {
                     "$ref": "parameters-schema.json#/definitions/FunctionReturnsSamePrimitive"
                 },
@@ -193,6 +196,9 @@
                 },
                 "JoinWithVirtualTable": {
                     "$ref": "parameters-schema.json#/definitions/JoinWithVirtualTable"
+                },
+                "LatinAndCyrillicSymbolInWord": {
+                    "$ref": "parameters-schema.json#/definitions/LatinAndCyrillicSymbolInWord"
                 },
                 "LineLength": {
                     "$ref": "parameters-schema.json#/definitions/LineLength"
@@ -271,6 +277,9 @@
                 },
                 "PublicMethodsDescription": {
                     "$ref": "parameters-schema.json#/definitions/PublicMethodsDescription"
+                },
+                "RefOveruse": {
+                    "$ref": "parameters-schema.json#/definitions/RefOveruse"
                 },
                 "SelfAssign": {
                     "$ref": "parameters-schema.json#/definitions/SelfAssign"
